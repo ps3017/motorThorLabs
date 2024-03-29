@@ -25,6 +25,7 @@ thorlabs_DBD += drvAsynSerialPort.dbd
 #endif
 thorlabs_DBD += motorSupport.dbd
 thorlabs_DBD += devThorLabs.dbd
+thorlabs_DBD += devThorLabsKinesis.dbd
 
 # Add all the support libraries needed by this IOC
 thorlabs_LIBS += ThorLabs

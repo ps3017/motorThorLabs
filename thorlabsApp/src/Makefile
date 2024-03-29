@@ -20,17 +20,22 @@ ifeq ($(WITH_KINESIS),YES)
     
     USR_INCLUDES = -I$(THORLABS_DIR)
     
-    DBD += devThorLabsKinesis.dbd
+    USR_LDFLAGS = -L$(THORLABS_DIR)
     
+    DBD += devThorLabsKinesis.dbd
+
     SRCS += drvKinesis.cpp
     SRCS += drvKinesisStepper.cpp
     SRCS += drvKinesisDC.cpp
     
+    Thorlabs.MotionControl.DeviceManager_DIR += $(THORLABS_DIR)
+    ThorLabs_SYS_LIBS += Thorlabs.MotionControl.DeviceManager
+
     Thorlabs.MotionControl.KCube.DCServo_DIR += $(THORLABS_DIR)
-    ThorLabs_DLL_LIBS += Thorlabs.MotionControl.KCube.DCServo
+    ThorLabs_SYS_LIBS += Thorlabs.MotionControl.KCube.DCServo
 
     Thorlabs.MotionControl.KCube.StepperMotor_DIR += $(THORLABS_DIR)
-    ThorLabs_DLL_LIBS += Thorlabs.MotionControl.KCube.StepperMotor
+    ThorLabs_SYS_LIBS += Thorlabs.MotionControl.KCube.StepperMotor
 endif
 
 
